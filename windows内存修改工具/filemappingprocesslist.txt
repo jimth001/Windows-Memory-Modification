@@ -1,0 +1,620 @@
+进程ID： 0
+父进程ID： 0
+进程名称： [System Process]
+线程数： 4
+虚存大小： 0 KB
+进程ID： 4
+父进程ID： 0
+进程名称： System
+线程数： 236
+虚存大小： 0 KB
+进程ID： 352
+父进程ID： 4
+进程名称： smss.exe
+线程数： 2
+虚存大小： 0 KB
+进程ID： 572
+父进程ID： 560
+进程名称： csrss.exe
+线程数： 11
+虚存大小： 0 KB
+进程ID： 652
+父进程ID： 560
+进程名称： wininit.exe
+线程数： 1
+虚存大小： 0 KB
+进程ID： 784
+父进程ID： 652
+进程名称： services.exe
+线程数： 5
+虚存大小： 0 KB
+进程ID： 800
+父进程ID： 652
+进程名称： lsass.exe
+线程数： 9
+虚存大小： 11680 KB
+进程ID： 880
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 19
+虚存大小： 13388 KB
+进程ID： 936
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 13
+虚存大小： 9296 KB
+进程ID： 304
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 27
+虚存大小： 13620 KB
+进程ID： 444
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 25
+虚存大小： 80372 KB
+进程ID： 1040
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 26
+虚存大小： 16140 KB
+进程ID： 1196
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 9
+虚存大小： 4248 KB
+进程ID： 1328
+父进程ID： 784
+进程名称： nvvsvc.exe
+线程数： 5
+虚存大小： 5132 KB
+进程ID： 1480
+父进程ID： 784
+进程名称： QQPCRTP.exe
+线程数： 107
+虚存大小： 39708 KB
+进程ID： 1512
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 62
+虚存大小： 42352 KB
+进程ID： 1544
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 27
+虚存大小： 25596 KB
+进程ID： 1588
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 23
+虚存大小： 14308 KB
+进程ID： 1960
+父进程ID： 784
+进程名称： IntelCpHeciSvc.exe
+线程数： 6
+虚存大小： 3712 KB
+进程ID： 2260
+父进程ID： 784
+进程名称： igfxCUIService.exe
+线程数： 2
+虚存大小： 3248 KB
+进程ID： 2624
+父进程ID： 784
+进程名称： spoolsv.exe
+线程数： 11
+虚存大小： 4036 KB
+进程ID： 2800
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 8
+虚存大小： 1764 KB
+进程ID： 2824
+父进程ID： 784
+进程名称： DictUpdater.exe
+线程数： 8
+虚存大小： 6200 KB
+进程ID： 3012
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 13
+虚存大小： 34004 KB
+进程ID： 3052
+父进程ID： 784
+进程名称： CAJSHost.exe
+线程数： 2
+虚存大小： 48 KB
+进程ID： 2216
+父进程ID： 784
+进程名称： NvStreamService.exe
+线程数： 6
+虚存大小： 484 KB
+进程ID： 2312
+父进程ID： 444
+进程名称： dasHost.exe
+线程数： 2
+虚存大小： 568 KB
+进程ID： 2284
+父进程ID： 784
+进程名称： NvNetworkService.exe
+线程数： 2
+虚存大小： 52 KB
+进程ID： 2348
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 7
+虚存大小： 4296 KB
+进程ID： 2372
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 9
+虚存大小： 15872 KB
+进程ID： 2368
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 15
+虚存大小： 4132 KB
+进程ID： 2516
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 23
+虚存大小： 8240 KB
+进程ID： 3164
+父进程ID： 784
+进程名称： TenpayServer.exe
+线程数： 4
+虚存大小： 48 KB
+进程ID： 3204
+父进程ID： 784
+进程名称： QQProtect.exe
+线程数： 18
+虚存大小： 4716 KB
+进程ID： 3580
+父进程ID： 784
+进程名称： vmnetdhcp.exe
+线程数： 2
+虚存大小： 1220 KB
+进程ID： 3604
+父进程ID： 784
+进程名称： vmnat.exe
+线程数： 4
+虚存大小： 2508 KB
+进程ID： 4060
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 4
+虚存大小： 2584 KB
+进程ID： 4172
+父进程ID： 784
+进程名称： SearchIndexer.exe
+线程数： 38
+虚存大小： 34356 KB
+进程ID： 4340
+父进程ID： 784
+进程名称： PresentationFontCache.exe
+线程数： 4
+虚存大小： 2400 KB
+进程ID： 9208
+父进程ID： 444
+进程名称： WUDFHost.exe
+线程数： 8
+虚存大小： 7452 KB
+进程ID： 14384
+父进程ID： 25256
+进程名称： csrss.exe
+线程数： 12
+虚存大小： 0 KB
+进程ID： 8108
+父进程ID： 25256
+进程名称： winlogon.exe
+线程数： 4
+虚存大小： 7080 KB
+进程ID： 30280
+父进程ID： 8108
+进程名称： dwm.exe
+线程数： 12
+虚存大小： 67808 KB
+进程ID： 11372
+父进程ID： 1328
+进程名称： nvxdsync.exe
+线程数： 11
+虚存大小： 8932 KB
+进程ID： 4944
+父进程ID： 1328
+进程名称： nvvsvc.exe
+线程数： 4
+虚存大小： 12752 KB
+进程ID： 6208
+父进程ID： 1512
+进程名称： sihost.exe
+线程数： 12
+虚存大小： 23632 KB
+进程ID： 21836
+父进程ID： 1512
+进程名称： taskhostw.exe
+线程数： 17
+虚存大小： 56020 KB
+进程ID： 11856
+父进程ID： 880
+进程名称： ChsIME.exe
+线程数： 11
+虚存大小： 52300 KB
+进程ID： 32620
+父进程ID： 12160
+进程名称： explorer.exe
+线程数： 89
+虚存大小： 118480 KB
+进程ID： 25612
+父进程ID： 34896
+进程名称： igfxEM.exe
+线程数： 4
+虚存大小： 9944 KB
+进程ID： 26044
+父进程ID： 34896
+进程名称： igfxHK.exe
+线程数： 2
+虚存大小： 8256 KB
+进程ID： 10220
+父进程ID： 880
+进程名称： RuntimeBroker.exe
+线程数： 105
+虚存大小： 45616 KB
+进程ID： 36028
+父进程ID： 880
+进程名称： ShellExperienceHost.exe
+线程数： 35
+虚存大小： 53700 KB
+进程ID： 20176
+父进程ID： 880
+进程名称： SearchUI.exe
+线程数： 26
+虚存大小： 57176 KB
+进程ID： 18296
+父进程ID： 11372
+进程名称： nvtray.exe
+线程数： 8
+虚存大小： 6456 KB
+进程ID： 19296
+父进程ID： 18296
+进程名称： NvBackend.exe
+线程数： 16
+虚存大小： 8644 KB
+进程ID： 34452
+父进程ID： 1480
+进程名称： QQPCTray.exe
+线程数： 153
+虚存大小： 38444 KB
+进程ID： 11932
+父进程ID： 2216
+进程名称： NvStreamNetworkService.exe
+线程数： 17
+虚存大小： 1584 KB
+进程ID： 17164
+父进程ID： 2216
+进程名称： NvStreamUserAgent.exe
+线程数： 9
+虚存大小： 644 KB
+进程ID： 33740
+父进程ID： 17164
+进程名称： conhost.exe
+线程数： 2
+虚存大小： 5988 KB
+进程ID： 26440
+父进程ID： 11932
+进程名称： conhost.exe
+线程数： 2
+虚存大小： 4952 KB
+进程ID： 12172
+父进程ID： 32620
+进程名称： Everything.exe
+线程数： 1
+虚存大小： 76 KB
+进程ID： 6400
+父进程ID： 32620
+进程名称： yundetectservice.exe
+线程数： 7
+虚存大小： 2732 KB
+进程ID： 5744
+父进程ID： 880
+进程名称： ChsIME.exe
+线程数： 8
+虚存大小： 12344 KB
+进程ID： 12284
+父进程ID： 34156
+进程名称： vmware-tray.exe
+线程数： 3
+虚存大小： 696 KB
+进程ID： 12640
+父进程ID： 12172
+进程名称： Everything.exe
+线程数： 7
+虚存大小： 13908 KB
+进程ID： 35712
+父进程ID： 880
+进程名称： NetworkUXBroker.exe
+线程数： 6
+虚存大小： 20680 KB
+进程ID： 34100
+父进程ID： 880
+进程名称： dllhost.exe
+线程数： 5
+虚存大小： 8968 KB
+进程ID： 25752
+父进程ID： 34452
+进程名称： QQPCNetFlow.exe
+线程数： 28
+虚存大小： 1920 KB
+进程ID： 34204
+父进程ID： 34452
+进程名称： QQPCRealTimeSpeedup.exe
+线程数： 23
+虚存大小： 26496 KB
+进程ID： 38840
+父进程ID： 880
+进程名称： ApplicationFrameHost.exe
+线程数： 14
+虚存大小： 28696 KB
+进程ID： 5720
+父进程ID： 880
+进程名称： MicrosoftEdge.exe
+线程数： 37
+虚存大小： 84140 KB
+进程ID： 37116
+父进程ID： 880
+进程名称： browser_broker.exe
+线程数： 6
+虚存大小： 23320 KB
+进程ID： 11484
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 37
+虚存大小： 127592 KB
+进程ID： 3996
+父进程ID： 34380
+进程名称： AsusTPLoader.exe
+线程数： 3
+虚存大小： 244 KB
+进程ID： 28872
+父进程ID： 3996
+进程名称： AsusTPCenter.exe
+线程数： 6
+虚存大小： 452 KB
+进程ID： 35472
+父进程ID： 28872
+进程名称： AsusTPHelper.exe
+线程数： 3
+虚存大小： 88 KB
+进程ID： 5320
+父进程ID： 784
+进程名称： svchost.exe
+线程数： 11
+虚存大小： 35232 KB
+进程ID： 17796
+父进程ID： 880
+进程名称： SettingSyncHost.exe
+线程数： 3
+虚存大小： 2680 KB
+进程ID： 28188
+父进程ID： 880
+进程名称： FlashUtil_ActiveX.exe
+线程数： 4
+虚存大小： 8744 KB
+进程ID： 34216
+父进程ID： 880
+进程名称： SystemSettingsBroker.exe
+线程数： 6
+虚存大小： 16772 KB
+进程ID： 14380
+父进程ID： 32620
+进程名称： GitExtensions.exe
+线程数： 19
+虚存大小： 32596 KB
+进程ID： 33464
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 29
+虚存大小： 86312 KB
+进程ID： 37524
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 66
+虚存大小： 155100 KB
+进程ID： 24120
+父进程ID： 32620
+进程名称： WINWORD.EXE
+线程数： 23
+虚存大小： 15280 KB
+进程ID： 26988
+父进程ID： 1040
+进程名称： audiodg.exe
+线程数： 15
+虚存大小： 0 KB
+进程ID： 20756
+父进程ID： 32620
+进程名称： QQMusic.exe
+线程数： 86
+虚存大小： 29088 KB
+进程ID： 23012
+父进程ID： 20756
+进程名称： QQMusicExternal.exe
+线程数： 27
+虚存大小： 8040 KB
+进程ID： 36748
+父进程ID： 20756
+进程名称： QQMusicExternal.exe
+线程数： 6
+虚存大小： 2208 KB
+进程ID： 26128
+父进程ID： 20756
+进程名称： qbclient.exe
+线程数： 27
+虚存大小： 5800 KB
+进程ID： 19692
+父进程ID： 880
+进程名称： InputPersonalization.exe
+线程数： 9
+虚存大小： 18624 KB
+进程ID： 10284
+父进程ID： 20756
+进程名称： QQMusicExternal.exe
+线程数： 18
+虚存大小： 3420 KB
+进程ID： 21072
+父进程ID： 13116
+进程名称： QQ.exe
+线程数： 83
+虚存大小： 91936 KB
+进程ID： 37924
+父进程ID： 880
+进程名称： TXPlatform.exe
+线程数： 2
+虚存大小： 72 KB
+进程ID： 28128
+父进程ID： 21072
+进程名称： QQExternal.exe
+线程数： 12
+虚存大小： 10464 KB
+进程ID： 6368
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 25
+虚存大小： 87520 KB
+进程ID： 16628
+父进程ID： 32620
+进程名称： baiduyunguanjia.exe
+线程数： 50
+虚存大小： 79336 KB
+进程ID： 25152
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 29
+虚存大小： 95040 KB
+进程ID： 36052
+父进程ID： 32620
+进程名称： WeChat.exe
+线程数： 41
+虚存大小： 22488 KB
+进程ID： 28008
+父进程ID： 36052
+进程名称： WeChatWeb.exe
+线程数： 17
+虚存大小： 720 KB
+进程ID： 20184
+父进程ID： 36052
+进程名称： WeChatWeb.exe
+线程数： 10
+虚存大小： 940 KB
+进程ID： 20804
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 45
+虚存大小： 107760 KB
+进程ID： 15476
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 20
+虚存大小： 40472 KB
+进程ID： 28744
+父进程ID： 10220
+进程名称： MicrosoftEdgeCP.exe
+线程数： 21
+虚存大小： 70440 KB
+进程ID： 8636
+父进程ID： 32620
+进程名称： Typora.exe
+线程数： 37
+虚存大小： 23076 KB
+进程ID： 10968
+父进程ID： 8636
+进程名称： Typora.exe
+线程数： 14
+虚存大小： 1468 KB
+进程ID： 3180
+父进程ID： 8636
+进程名称： Typora.exe
+线程数： 15
+虚存大小： 6612 KB
+进程ID： 2152
+父进程ID： 1512
+进程名称： taskhostw.exe
+线程数： 4
+虚存大小： 17988 KB
+进程ID： 24896
+父进程ID： 880
+进程名称： Video.UI.exe
+线程数： 13
+虚存大小： 22832 KB
+进程ID： 33300
+父进程ID： 880
+进程名称： Microsoft.Photos.exe
+线程数： 41
+虚存大小： 59460 KB
+进程ID： 10172
+父进程ID： 32620
+进程名称： Taskmgr.exe
+线程数： 15
+虚存大小： 35600 KB
+进程ID： 12396
+父进程ID： 22544
+进程名称： devenv.exe
+线程数： 54
+虚存大小： 346192 KB
+进程ID： 34880
+父进程ID： 12396
+进程名称： MSBuild.exe
+线程数： 8
+虚存大小： 36700 KB
+进程ID： 37452
+父进程ID： 34880
+进程名称： conhost.exe
+线程数： 1
+虚存大小： 4940 KB
+进程ID： 29540
+父进程ID： 10152
+进程名称： mspdbsrv.exe
+线程数： 7
+虚存大小： 5408 KB
+进程ID： 6288
+父进程ID： 21072
+进程名称： QQExternal.exe
+线程数： 11
+虚存大小： 23048 KB
+进程ID： 24768
+父进程ID： 784
+进程名称： wwbizsrv.exe
+线程数： 5
+虚存大小： 10212 KB
+进程ID： 32512
+父进程ID： 4172
+进程名称： SearchProtocolHost.exe
+线程数： 10
+虚存大小： 10444 KB
+进程ID： 33284
+父进程ID： 4172
+进程名称： SearchFilterHost.exe
+线程数： 4
+虚存大小： 5812 KB
+进程ID： 26268
+父进程ID： 12396
+进程名称： cmd.exe
+线程数： 8
+虚存大小： 10988 KB
+进程ID： 38684
+父进程ID： 26268
+进程名称： conhost.exe
+线程数： 3
+虚存大小： 12604 KB
+进程ID： 37320
+父进程ID： 880
+进程名称： WmiPrvSE.exe
+线程数： 11
+虚存大小： 9620 KB
+进程ID： 33852
+父进程ID： 26268
+进程名称： windows内存修改工具.exe
+线程数： 4
+虚存大小： 4268 KB
+进程ID： 28852
+父进程ID： 33852
+进程名称： conhost.exe
+线程数： 5
+虚存大小： 12784 KB
