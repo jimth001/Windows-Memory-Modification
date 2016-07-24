@@ -32,13 +32,13 @@ void mySetLastError(DWORD e)
 	my_error = e;
 }
 
- DWORD  WINAPI getSystemPageSize()
+DWORD  WINAPI getSystemPageSize()
 {
 	SYSTEM_INFO system_info;
 	GetSystemInfo(&system_info);
 	return system_info.dwPageSize;
 }
- string  WINAPI getSystemInfo_toString()
+string  WINAPI getSystemInfo_toString()
 {
 	SYSTEM_INFO system_info;
 	GetSystemInfo(&system_info);
@@ -91,7 +91,7 @@ void mySetLastError(DWORD e)
 	strInfo += strTemp;
 	return strInfo;
 }
- string  WINAPI getPerformanceInfo_toString()
+string  WINAPI getPerformanceInfo_toString()
 {
 	PERFORMANCE_INFORMATION pi;
 	pi.cb = sizeof(pi);
@@ -133,7 +133,7 @@ void mySetLastError(DWORD e)
 	return pInfo;
 }
 
- string  WINAPI processInfoToString(PROCESSENTRY32 pe, PROCESS_MEMORY_COUNTERS *pmc)
+string  WINAPI processInfoToString(PROCESSENTRY32 pe, PROCESS_MEMORY_COUNTERS *pmc)
 {
 	char trans[MAX_PATH] = { 0 };
 	string ID, Name, VMemory, cntThreads, th32ParentProcessID;
@@ -149,10 +149,10 @@ void mySetLastError(DWORD e)
 	VMemory = trans;
 	return ID + th32ParentProcessID + Name + cntThreads + VMemory;
 }
- /*
- 获取进程列表
- */
- string  WINAPI getProcessList(vector<PROCESS_MEMORY_COUNTERS>& vct_pmc, vector<PROCESSENTRY32>& vct_pe32)
+/*
+获取进程列表
+*/
+string  WINAPI getProcessList(vector<PROCESS_MEMORY_COUNTERS>& vct_pmc, vector<PROCESSENTRY32>& vct_pe32)
 {
 	/*
 	typedef struct tagPROCESSENTRY32 {
@@ -204,7 +204,7 @@ void mySetLastError(DWORD e)
 	CloseHandle(hProcessSnap);
 	return pceInfo;
 }
- string  WINAPI getProtectionInfoString(DWORD dwTarget)
+string  WINAPI getProtectionInfoString(DWORD dwTarget)
 {
 	string rt = "";
 	if (dwTarget == PAGE_READONLY)
@@ -253,7 +253,7 @@ void mySetLastError(DWORD e)
 	}
 	return rt;
 }
- BOOL WINAPI EnablePrivileges()
+BOOL WINAPI EnablePrivileges()
 {
 	//提权：
 	HANDLE hToken;
@@ -272,13 +272,13 @@ void mySetLastError(DWORD e)
 		return FALSE;
 	return TRUE;
 }
- string  WINAPI memBlockInfoToString(MEMORY_BASIC_INFORMATION memBasicInfo, HANDLE handle)
+string  WINAPI memBlockInfoToString(MEMORY_BASIC_INFORMATION memBasicInfo, HANDLE handle)
 {
-	 if (handle == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
+	if (handle == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
 	string Info = "";
 	char trans[MAX_PATH];
 	char szSize[MAX_PATH];
@@ -339,7 +339,7 @@ void mySetLastError(DWORD e)
 	Info += "\r\n";
 	return Info;
 }
- BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, char *expval, int *surplus)
+BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, char *expval, int *surplus)
 {
 	*surplus = sizeof(expval);
 	int i = 0, j = 0;
@@ -373,7 +373,7 @@ void mySetLastError(DWORD e)
 	}
 	return TRUE;
 }
- BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, int *expval)
+BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, int *expval)
 {
 	int t = 0;
 	int i = 0;
@@ -387,15 +387,15 @@ void mySetLastError(DWORD e)
 			if (is_xd_machine == FALSE)
 			{
 				int tmp = 0;
-				tmp = tmp|buffer[i + j];
+				tmp = tmp | buffer[i + j];
 				t = (tmp << (msize - j - 1) * 8) | t;
 			}
 			else
 			{
 				int tmp = 0;//
-				tmp = tmp|buffer[i + j];
+				tmp = tmp | buffer[i + j];
 				int tt = (tmp << (8 * j));
-				t =  tt| t;
+				t = tt | t;
 			}
 		}
 		if (t == *expval)
@@ -414,7 +414,7 @@ void mySetLastError(DWORD e)
 	}
 	return TRUE;
 }
- BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, float *expval)
+BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, float *expval)
 {
 	float f = 0;
 	int *t = (int *)&f;
@@ -429,13 +429,13 @@ void mySetLastError(DWORD e)
 			if (is_xd_machine == FALSE)
 			{
 				int tmp = 0;
-				tmp = tmp|(unsigned int)buffer[i + j];
+				tmp = tmp | (unsigned int)buffer[i + j];
 				*t = (tmp << (msize - j - 1) * 8) | *t;
 			}
 			else
 			{
 				int tmp = 0;
-				tmp = tmp|(unsigned int)buffer[i + j];
+				tmp = tmp | (unsigned int)buffer[i + j];
 				int tt = (tmp << (8 * j));
 				*t = tt | *t;
 			}
@@ -455,7 +455,7 @@ void mySetLastError(DWORD e)
 	}
 	return TRUE;
 }
- BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, double *expval)
+BOOL WINAPI search_in_buffer(unsigned char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, double *expval)
 {
 	double f = 0;
 	LONG64 *t = (LONG64 *)&f;
@@ -470,15 +470,15 @@ void mySetLastError(DWORD e)
 			if (is_xd_machine == FALSE)
 			{
 				LONG64 tmp = 0;
-				tmp =tmp|(unsigned int)buffer[i + j];
+				tmp = tmp | (unsigned int)buffer[i + j];
 				*t = (tmp << (msize - j - 1) * 8) | *t;
 			}
 			else
 			{
 				LONG64 tmp = 0;
-				tmp = tmp|(unsigned int)buffer[i + j];
+				tmp = tmp | (unsigned int)buffer[i + j];
 				*t = (tmp << (8 * j)) | *t;
-				
+
 			}
 		}
 		if (fabs(f - *expval)<1)
@@ -492,13 +492,13 @@ void mySetLastError(DWORD e)
 	}
 	return TRUE;
 }
- BOOL WINAPI search_one_mem_block(MEMORY_BASIC_INFORMATION memBasicInfo, search_info& v_s_rslt, HANDLE handle, DWORD PageSize)
+BOOL WINAPI search_one_mem_block(MEMORY_BASIC_INFORMATION memBasicInfo, search_info& v_s_rslt, HANDLE handle, DWORD PageSize)
 {
-	 if (handle == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
+	if (handle == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
 	int i;
 	int block_num = memBasicInfo.RegionSize / PageSize;
 	if (memBasicInfo.RegionSize%PageSize != 0)
@@ -509,7 +509,7 @@ void mySetLastError(DWORD e)
 	SIZE_T readnum = 0;
 	unsigned char readBuffer[READ_BUFFER_SIZE] = { 0 };
 	DWORD dwOldProt, dwNewProt;
-	if (!VirtualProtectEx(handle, (void*)memBasicInfo.BaseAddress, memBasicInfo.RegionSize, PAGE_READWRITE, &dwOldProt)&&GetLastError()!=87)
+	if (!VirtualProtectEx(handle, (void*)memBasicInfo.BaseAddress, memBasicInfo.RegionSize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
 	{
 		mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
 		return FALSE;
@@ -521,7 +521,7 @@ void mySetLastError(DWORD e)
 		{
 			mySetLastError(RPM_FAIL);
 			return FALSE;
-			
+
 		}
 		int sur = 0;
 		switch (v_s_rslt.s_type)
@@ -534,32 +534,32 @@ void mySetLastError(DWORD e)
 			break;
 		}
 	}
-	if (!VirtualProtectEx(handle, (void*)memBasicInfo.BaseAddress, memBasicInfo.RegionSize, dwOldProt, &dwNewProt)&&GetLastError()!=87)
+	if (!VirtualProtectEx(handle, (void*)memBasicInfo.BaseAddress, memBasicInfo.RegionSize, dwOldProt, &dwNewProt) && GetLastError() != 87)
 	{
 		mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
 		return FALSE;
 	}
 	return TRUE;
 }
- /*
- 首次搜索
- vector<MEMORY_BASIC_INFORMATION> memInfo,筛选出的待搜索块
- search_info &v_s_rslt,保存搜索结果的数据结构
- HANDLE handle,进程句柄
- DWORD s_type,搜索类型，支持FLOAT_T INT_T DOUBLE_T STRING_T
- DWORD pagesize,系统页面大小
- char* charexpval,要搜索的STRING_T值
- int *intexpval,要搜索的INT_T值
- float *floatexpval,要搜索的FLOAT_T值
- double *doubleexpval要搜索的DOUBLE_T值
- */
- BOOL WINAPI searchAll(vector<MEMORY_BASIC_INFORMATION> memInfo, search_info &v_s_rslt, HANDLE handle, DWORD s_type, DWORD pagesize, char* charexpval, int *intexpval, float *floatexpval, double *doubleexpval)
+/*
+首次搜索
+vector<MEMORY_BASIC_INFORMATION> memInfo,筛选出的待搜索块
+search_info &v_s_rslt,保存搜索结果的数据结构
+HANDLE handle,进程句柄
+DWORD s_type,搜索类型，支持FLOAT_T INT_T DOUBLE_T STRING_T
+DWORD pagesize,系统页面大小
+char* charexpval,要搜索的STRING_T值
+int *intexpval,要搜索的INT_T值
+float *floatexpval,要搜索的FLOAT_T值
+double *doubleexpval要搜索的DOUBLE_T值
+*/
+BOOL WINAPI searchAll(vector<MEMORY_BASIC_INFORMATION> memInfo, search_info &v_s_rslt, HANDLE handle, DWORD s_type, DWORD pagesize, char* charexpval, int *intexpval, float *floatexpval, double *doubleexpval)
 {
-	 if (handle == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
+	if (handle == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
 	v_s_rslt.s_type = s_type;
 	switch (s_type)
 	{
@@ -585,7 +585,7 @@ void mySetLastError(DWORD e)
 DWORD IN pid,要打开的进程
 DWORD OUT hProcess成功后返回的进程句柄
 */
- BOOL WINAPI attachToProcess(DWORD Pid, HANDLE & hProcess)
+BOOL WINAPI attachToProcess(DWORD Pid, HANDLE & hProcess)
 {
 	hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, Pid);
 	if (hProcess == NULL)
@@ -603,7 +603,7 @@ DWORD IN stateFilter 按state类型过滤内存块
 DWORD IN typeFilter  按type类型过滤内存块
 DWORD IN protectFilter  按protect类型过滤内存块
 */
- BOOL WINAPI getProcessMemBlockEX(HANDLE hProcess, vector<MEMORY_BASIC_INFORMATION>& memInfo, DWORD stateFilter, DWORD typeFilter, DWORD protectFilter, DWORD* memSize)
+BOOL WINAPI getProcessMemBlockEX(HANDLE hProcess, vector<MEMORY_BASIC_INFORMATION>& memInfo, DWORD stateFilter, DWORD typeFilter, DWORD protectFilter, DWORD* memSize)
 {
 	/*
 	typedef struct _MEMORY_BASIC_INFORMATION {
@@ -677,13 +677,13 @@ DWORD IN protectFilter  按protect类型过滤内存块
 int size,申请的虚存大小
 HANDLE handle进程句柄
 */
- LPVOID WINAPI AllocVirtual(int size, HANDLE handle)
+LPVOID WINAPI AllocVirtual(int size, HANDLE handle)
 {
-	 if (handle == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
+	if (handle == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
 	LPVOID Buffer = (LPVOID)VirtualAllocEx(handle, NULL, size, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 	if (Buffer == NULL)
 	{
@@ -696,13 +696,13 @@ HANDLE handle进程句柄
 LPVOID Buffer,释放的虚地址指针
 HANDLE handle进程句柄
 */
- BOOL WINAPI FreeVirtual(LPVOID Buffer, HANDLE handle)
+BOOL WINAPI FreeVirtual(LPVOID Buffer, HANDLE handle)
 {
-	 if (handle == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
+	if (handle == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
 	if (VirtualFreeEx(handle, Buffer, 0, MEM_RELEASE) == 0)
 	{
 		mySetLastError(inherit_last_error_in_free);
@@ -710,391 +710,391 @@ HANDLE handle进程句柄
 	}
 	return TRUE;
 }
- /*
- HANDLE hProcess,//进程句柄
- search_info & v_s_rslt,//保存上次搜索信息的数据结构
- LPVOID expected_val//新的搜索值
- */
- BOOL WINAPI nextScan(HANDLE hProcess, search_info & v_s_rslt, LPVOID expected_val)
- {
-	 if (hProcess == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
-	 int readsize=0;
-	 int listnum=0;
-	 SIZE_T real_read_num;
-	 unsigned char buffer[READ_BUFFER_SIZE];
-	 vector<search_i_list>::iterator pIIter = v_s_rslt.i_list.begin();;
-	 vector<search_f_list>::iterator pFIter = v_s_rslt.f_list.begin();;
-	 vector<search_d_list>::iterator pDIter = v_s_rslt.d_list.begin();;
-	 vector<search_s_list>::iterator pSIter = v_s_rslt.s_list.begin();;
-	 switch (v_s_rslt.s_type)
-	 {
-	 case INT_T:
-		 readsize = sizeof(int);
-		 memset(buffer, 0, sizeof(buffer));
-		 for (; pIIter != v_s_rslt.i_list.end();)
-		 {
-			 
-			 DWORD dwOldProt, dwNewProt = 0;
-			 real_read_num = 0;
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
+/*
+HANDLE hProcess,//进程句柄
+search_info & v_s_rslt,//保存上次搜索信息的数据结构
+LPVOID expected_val//新的搜索值
+*/
+BOOL WINAPI nextScan(HANDLE hProcess, search_info & v_s_rslt, LPVOID expected_val)
+{
+	if (hProcess == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
+	int readsize = 0;
+	int listnum = 0;
+	SIZE_T real_read_num;
+	unsigned char buffer[READ_BUFFER_SIZE];
+	vector<search_i_list>::iterator pIIter = v_s_rslt.i_list.begin();;
+	vector<search_f_list>::iterator pFIter = v_s_rslt.f_list.begin();;
+	vector<search_d_list>::iterator pDIter = v_s_rslt.d_list.begin();;
+	vector<search_s_list>::iterator pSIter = v_s_rslt.s_list.begin();;
+	switch (v_s_rslt.s_type)
+	{
+	case INT_T:
+		readsize = sizeof(int);
+		memset(buffer, 0, sizeof(buffer));
+		for (; pIIter != v_s_rslt.i_list.end();)
+		{
 
-			 if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), buffer, readsize, &real_read_num))
-			 {
-				 mySetLastError(NextScan_READFAIL);
-				 return FALSE;
-			 }
-			 int t = 0;
-			 for (int j = 0; j < readsize; j++)
-			 {
-				 if (is_xd_machine == FALSE)
-				 {
-					 int tmp = 0;
-					 tmp = tmp | buffer[ j];
-					 t = (tmp << (readsize - j - 1) * 8) | t;
-				 }
-				 else
-				 {
-					 int tmp = 0;//
-					 tmp = tmp | buffer[ j];
-					 int tt = (tmp << (8 * j));
-					 t = tt | t;
-				 }
-			 }
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (*(int*)expected_val == t)
-			 {
-				 pIIter->i_val = t;
-				 pIIter++;
-			 }
-			 else
-			 {
-				 pIIter = v_s_rslt.i_list.erase(pIIter);
-			 }
-			 
-		 }
-		 break;
-	 case FLOAT_T:readsize = sizeof(float);
-		 memset(buffer, 0, sizeof(buffer));
-		 for (; pFIter != v_s_rslt.f_list.end();)
-		 {
+			DWORD dwOldProt, dwNewProt = 0;
+			real_read_num = 0;
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
 
-			 DWORD dwOldProt, dwNewProt = 0;
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 
-			 if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), buffer, readsize, &real_read_num))
-			 {
-				 mySetLastError(NextScan_READFAIL);
-				 return FALSE;
-			 }
-			 float f = 0;
-			 int *t = (int *)&f;
-			 for (int j = 0; j < readsize; j++)
-			 {
-				 if (is_xd_machine == FALSE)
-				 {
-					 int tmp = 0;
-					 tmp = tmp | buffer[j];
-					 *t = (tmp << (readsize - j - 1) * 8) | *t;
-				 }
-				 else
-				 {
-					 int tmp = 0;//
-					 tmp = tmp | buffer[j];
-					 int tt = (tmp << (8 * j));
-					 *t = tt | *t;
-				 }
-			 }
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (fabs(*(float*)expected_val - f)<1 )
-			 {
-				 pFIter->f_val = f;
-				 pFIter++;
-			 }
-			 else
-			 {
-				 pFIter = v_s_rslt.f_list.erase(pFIter);
-			 }
+			if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), buffer, readsize, &real_read_num))
+			{
+				mySetLastError(NextScan_READFAIL);
+				return FALSE;
+			}
+			int t = 0;
+			for (int j = 0; j < readsize; j++)
+			{
+				if (is_xd_machine == FALSE)
+				{
+					int tmp = 0;
+					tmp = tmp | buffer[j];
+					t = (tmp << (readsize - j - 1) * 8) | t;
+				}
+				else
+				{
+					int tmp = 0;//
+					tmp = tmp | buffer[j];
+					int tt = (tmp << (8 * j));
+					t = tt | t;
+				}
+			}
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pIIter->baseAddress + pIIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (*(int*)expected_val == t)
+			{
+				pIIter->i_val = t;
+				pIIter++;
+			}
+			else
+			{
+				pIIter = v_s_rslt.i_list.erase(pIIter);
+			}
 
-		 }
-		 break;
-	 case DOUBLE_T:readsize = sizeof(double);
-		 memset(buffer, 0, sizeof(buffer));
-		 for (; pDIter != v_s_rslt.d_list.end();)
-		 {
+		}
+		break;
+	case FLOAT_T:readsize = sizeof(float);
+		memset(buffer, 0, sizeof(buffer));
+		for (; pFIter != v_s_rslt.f_list.end();)
+		{
 
-			 DWORD dwOldProt, dwNewProt = 0;
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), buffer, readsize, &real_read_num)==FALSE)
-			 {
-				 mySetLastError(NextScan_READFAIL);
-				 return FALSE;
-			 }
-			 double f = 0;
-			 LONG64 *t = (LONG64 *)&f;
-			 for (int j = 0; j < readsize; j++)
-			 {
-				 if (is_xd_machine == FALSE)
-				 {
-					 LONG64 tmp = 0;
-					 tmp = tmp | buffer[j];
-					 *t = (tmp << (readsize - j - 1) * 8) | *t;
-				 }
-				 else
-				 {
-					 LONG64 tmp = 0;//
-					 tmp = tmp | buffer[j];
-					 LONG64 tt = (tmp << (8 * j));
-					 *t = tt | *t;
-				 }
-			 }
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (fabs(*(double*)expected_val - f) < 1)
-			 {
-				 pDIter->d_val = f;
-				 pDIter++;
-			 }
-			 else
-			 {
-				 pDIter = v_s_rslt.d_list.erase(pDIter);
-			 }
+			DWORD dwOldProt, dwNewProt = 0;
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
 
-		 }
-		 break;
-	 case STRING_T:readsize = strlen((char*)expected_val); 
-		 memset(buffer, '0', sizeof(buffer));
-		 for (; pSIter != v_s_rslt.s_list.end();)
-		 {
+			if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), buffer, readsize, &real_read_num))
+			{
+				mySetLastError(NextScan_READFAIL);
+				return FALSE;
+			}
+			float f = 0;
+			int *t = (int *)&f;
+			for (int j = 0; j < readsize; j++)
+			{
+				if (is_xd_machine == FALSE)
+				{
+					int tmp = 0;
+					tmp = tmp | buffer[j];
+					*t = (tmp << (readsize - j - 1) * 8) | *t;
+				}
+				else
+				{
+					int tmp = 0;//
+					tmp = tmp | buffer[j];
+					int tt = (tmp << (8 * j));
+					*t = tt | *t;
+				}
+			}
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pFIter->baseAddress + pFIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (fabs(*(float*)expected_val - f)<1)
+			{
+				pFIter->f_val = f;
+				pFIter++;
+			}
+			else
+			{
+				pFIter = v_s_rslt.f_list.erase(pFIter);
+			}
 
-			 DWORD dwOldProt, dwNewProt = 0;
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), buffer, readsize, &real_read_num))
-			 {
-				 mySetLastError(NextScan_READFAIL);
-				 return FALSE;
-			 }
-			 int t = 0;
-			 
-			 if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
-			 {
-				 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-				 return FALSE;
-			 }
-			 if (strcmp((char*)buffer, (char*)expected_val)==0)
-			 {
-				 pSIter->s_val=(char*)expected_val;
-				 pSIter++;
-			 }
-			 else
-			 {
-				 pSIter = v_s_rslt.s_list.erase(pSIter);
-			 }
+		}
+		break;
+	case DOUBLE_T:readsize = sizeof(double);
+		memset(buffer, 0, sizeof(buffer));
+		for (; pDIter != v_s_rslt.d_list.end();)
+		{
 
-		 }
-		 break;
-	 default:
-		 mySetLastError(WrongSearchType);
-		 return FALSE;
-	 }
-	 return TRUE;
- }
- /*
- HANDLE hProcess,//要写入的进程
- LPVOID address,//要写入的地址
- void * write_val,//要写入的变量指针，只能是string,int,double,float四种
- DWORD valType,//写入的变量类型，可选值见头文件宏定义
- int stringAppendZeroNUM,//字符串后追加的字符数量
- char endSet//字符串后追加字符，内存中string和char结尾不同
- */
- BOOL WINAPI writeData(HANDLE hProcess, LPVOID address, void * write_val,DWORD valType,int stringAppendZeroNUM,char endSet)
- {
-	 if (hProcess == INVALID_HANDLE_VALUE)
-	 {
-		 mySetLastError(INVALID_HANDLE);
-		 return FALSE;
-	 }
-	 if (write_val == NULL)
-	 {
-		 mySetLastError(NULL_POINTER);
-		 return FALSE;
-	 }
-	 int size=0;
-	 SIZE_T real_writenum = 0;
-	 DWORD dwOldProt, dwNewProt = 0;
-	 unsigned char buffer[READ_BUFFER_SIZE];
-	 switch (valType)
-	 {
-	 case INT_T:size = sizeof(int);
-		 if (is_xd_machine == TRUE)
-		 {
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
-			 }
-		 }
-		 else{
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
-			 }
-		 }
-		 
-		 if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 while (real_writenum < size)
-		 {
-			 if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
-			 {
-				 mySetLastError(WriteDataFalse);
-				 return FALSE;
-			 }
-		 }
-		 if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 break;
-	 case FLOAT_T:size = sizeof(float);
-		 if (is_xd_machine == TRUE)
-		 {
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
-			 }
-		 }
-		 else{
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
-			 }
-		 }
-		 
-		 if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 
-		 while (real_writenum < size)
-		 {
-			 if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
-			 {
-				 mySetLastError(WriteDataFalse);
-				 return FALSE;
-			 }
-		 }
-		 if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 break;
+			DWORD dwOldProt, dwNewProt = 0;
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), buffer, readsize, &real_read_num) == FALSE)
+			{
+				mySetLastError(NextScan_READFAIL);
+				return FALSE;
+			}
+			double f = 0;
+			LONG64 *t = (LONG64 *)&f;
+			for (int j = 0; j < readsize; j++)
+			{
+				if (is_xd_machine == FALSE)
+				{
+					LONG64 tmp = 0;
+					tmp = tmp | buffer[j];
+					*t = (tmp << (readsize - j - 1) * 8) | *t;
+				}
+				else
+				{
+					LONG64 tmp = 0;//
+					tmp = tmp | buffer[j];
+					LONG64 tt = (tmp << (8 * j));
+					*t = tt | *t;
+				}
+			}
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pDIter->baseAddress + pDIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (fabs(*(double*)expected_val - f) < 1)
+			{
+				pDIter->d_val = f;
+				pDIter++;
+			}
+			else
+			{
+				pDIter = v_s_rslt.d_list.erase(pDIter);
+			}
 
-	 case DOUBLE_T:size = sizeof(double);
-		 if (is_xd_machine == TRUE)
-		 {
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
-			 }
-		 }
-		 else{
-			 for (int i = 0; i < size; i++)
-			 {
-				 buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
-			 }
-		 }
-		 
-		 if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 
-		 while (real_writenum < size)
-		 {
-			 if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
-			 {
-				 mySetLastError(WriteDataFalse);
-				 return FALSE;
-			 }
-		 }
-		 if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 break;
+		}
+		break;
+	case STRING_T:readsize = strlen((char*)expected_val);
+		memset(buffer, '0', sizeof(buffer));
+		for (; pSIter != v_s_rslt.s_list.end();)
+		{
 
-	 case STRING_T:size = (*(string *)write_val).length();
-		 
-		 strcpy_s((char*)buffer,sizeof(buffer), (*(string *)write_val).c_str());
-		 if (size + stringAppendZeroNUM>READ_BUFFER_SIZE)//检查长度是否合法
-		 {
-			 mySetLastError(StringAppendZeroNUM_TOOBIG);
-			 return FALSE;
-		 }
-		 for (int i = size; i < stringAppendZeroNUM+size; i++)
-		 {
-			 buffer[i] = (unsigned char)endSet;
-		 }
-		 if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 while (real_writenum < size+stringAppendZeroNUM)
-		 {
-			 if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
-			 {
-				 mySetLastError(WriteDataFalse);
-				 return FALSE;
-			 }
-		 }
-		 if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
-		 {
-			 mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
-			 return FALSE;
-		 }
-		 break;
-	 default:
-		 mySetLastError(WrongSearchType);
-		 return FALSE;
-	 }
-	 return TRUE;
- }
+			DWORD dwOldProt, dwNewProt = 0;
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), readsize, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (!ReadProcessMemory(hProcess, (LPCVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), buffer, readsize, &real_read_num))
+			{
+				mySetLastError(NextScan_READFAIL);
+				return FALSE;
+			}
+			int t = 0;
+
+			if (!VirtualProtectEx(hProcess, (LPVOID)((unsigned char*)pSIter->baseAddress + pSIter->offset), readsize, dwOldProt, &dwNewProt) && GetLastError() != 87)
+			{
+				mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+				return FALSE;
+			}
+			if (strcmp((char*)buffer, (char*)expected_val) == 0)
+			{
+				pSIter->s_val = (char*)expected_val;
+				pSIter++;
+			}
+			else
+			{
+				pSIter = v_s_rslt.s_list.erase(pSIter);
+			}
+
+		}
+		break;
+	default:
+		mySetLastError(WrongSearchType);
+		return FALSE;
+	}
+	return TRUE;
+}
+/*
+HANDLE hProcess,//要写入的进程
+LPVOID address,//要写入的地址
+void * write_val,//要写入的变量指针，只能是string,int,double,float四种
+DWORD valType,//写入的变量类型，可选值见头文件宏定义
+int stringAppendZeroNUM,//字符串后追加的字符数量
+char endSet//字符串后追加字符，内存中string和char结尾不同
+*/
+BOOL WINAPI writeData(HANDLE hProcess, LPVOID address, void * write_val, DWORD valType, int stringAppendZeroNUM, char endSet)
+{
+	if (hProcess == INVALID_HANDLE_VALUE)
+	{
+		mySetLastError(INVALID_HANDLE);
+		return FALSE;
+	}
+	if (write_val == NULL)
+	{
+		mySetLastError(NULL_POINTER);
+		return FALSE;
+	}
+	int size = 0;
+	SIZE_T real_writenum = 0;
+	DWORD dwOldProt, dwNewProt = 0;
+	unsigned char buffer[READ_BUFFER_SIZE];
+	switch (valType)
+	{
+	case INT_T:size = sizeof(int);
+		if (is_xd_machine == TRUE)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
+			}
+		}
+		else{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
+			}
+		}
+
+		if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		while (real_writenum < size)
+		{
+			if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
+			{
+				mySetLastError(WriteDataFalse);
+				return FALSE;
+			}
+		}
+		if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		break;
+	case FLOAT_T:size = sizeof(float);
+		if (is_xd_machine == TRUE)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
+			}
+		}
+		else{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
+			}
+		}
+
+		if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+
+		while (real_writenum < size)
+		{
+			if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
+			{
+				mySetLastError(WriteDataFalse);
+				return FALSE;
+			}
+		}
+		if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		break;
+
+	case DOUBLE_T:size = sizeof(double);
+		if (is_xd_machine == TRUE)
+		{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = ((0xff << (i * 8))&(*(unsigned int *)write_val)) >> (i * 8);
+			}
+		}
+		else{
+			for (int i = 0; i < size; i++)
+			{
+				buffer[i] = (((0xff << (8 * size - 1)) >> (i * 8))&(*(unsigned int *)write_val)) >> (size - i - 1);
+			}
+		}
+
+		if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+
+		while (real_writenum < size)
+		{
+			if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
+			{
+				mySetLastError(WriteDataFalse);
+				return FALSE;
+			}
+		}
+		if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		break;
+
+	case STRING_T:size = (*(string *)write_val).length();
+
+		strcpy_s((char*)buffer, sizeof(buffer), (*(string *)write_val).c_str());
+		if (size + stringAppendZeroNUM>READ_BUFFER_SIZE)//检查长度是否合法
+		{
+			mySetLastError(StringAppendZeroNUM_TOOBIG);
+			return FALSE;
+		}
+		for (int i = size; i < stringAppendZeroNUM + size; i++)
+		{
+			buffer[i] = (unsigned char)endSet;
+		}
+		if (!VirtualProtectEx(hProcess, address, size, PAGE_READWRITE, &dwOldProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		while (real_writenum < size + stringAppendZeroNUM)
+		{
+			if (WriteProcessMemory(hProcess, (LPVOID)((char*)address + real_writenum), buffer + real_writenum, size - real_writenum, &real_writenum) == FALSE)
+			{
+				mySetLastError(WriteDataFalse);
+				return FALSE;
+			}
+		}
+		if (!VirtualProtectEx(hProcess, address, size, dwOldProt, &dwNewProt) && GetLastError() != 87)
+		{
+			mySetLastError(FAIL_TO_CHANGE_PAGE_INF);
+			return FALSE;
+		}
+		break;
+	default:
+		mySetLastError(WrongSearchType);
+		return FALSE;
+	}
+	return TRUE;
+}

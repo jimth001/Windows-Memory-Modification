@@ -96,29 +96,29 @@ typedef struct search_info{
 
 /*导出函数声明*/
 DWORD  WINAPI getSystemPageSize();
- string  WINAPI getSystemInfo_toString();
- string  WINAPI getPerformanceInfo_toString();
- string  WINAPI processInfoToString(PROCESSENTRY32 pe, PROCESS_MEMORY_COUNTERS *pmc);
- string  WINAPI getProcessList(vector<PROCESS_MEMORY_COUNTERS>& vct_pmc, vector<PROCESSENTRY32>& vct_pe32);
- string  WINAPI getProtectionInfoString(DWORD dwTarget);
- BOOL WINAPI EnablePrivileges();
- string  WINAPI memBlockInfoToString(MEMORY_BASIC_INFORMATION memBasicInfo, HANDLE handle);
- BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, char *expval, int *surplus);
- BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, int *expval);
- BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, float *expval);
- BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, double *expval);
- BOOL WINAPI search_one_mem_block(MEMORY_BASIC_INFORMATION memBasicInfo, search_info& v_s_rslt, HANDLE handle, DWORD PageSize);
- BOOL WINAPI searchAll(vector<MEMORY_BASIC_INFORMATION> memInfo, search_info &v_s_rslt, HANDLE handle, DWORD s_type, DWORD pagesize, char* charexpval, int *intexpval, float *floatexpval, double *doubleexpval);
- BOOL WINAPI attachToProcess(DWORD Pid, HANDLE & hProcess);
- BOOL WINAPI getProcessMemBlockEX(HANDLE hProcess, vector<MEMORY_BASIC_INFORMATION>& memInfo, DWORD stateFilter, DWORD typeFilter, DWORD protectFilter, DWORD* memSize);
- LPVOID WINAPI AllocVirtual(int size, HANDLE handle);
- BOOL WINAPI FreeVirtual(LPVOID Buffer, HANDLE handle);
- BOOL WINAPI nextScan(HANDLE hProcess, search_info & v_s_rslt, LPVOID expected_val);
- BOOL WINAPI writeData(HANDLE hProcess, LPVOID address, void * write_val, DWORD valType, int stringAppendZeroNUM,char endSet);
- void mySetLastError(DWORD e);
- DWORD myGetLastError();
- void init_for_mem_manage();
- void check_mem_align_scheme();
+string  WINAPI getSystemInfo_toString();
+string  WINAPI getPerformanceInfo_toString();
+string  WINAPI processInfoToString(PROCESSENTRY32 pe, PROCESS_MEMORY_COUNTERS *pmc);
+string  WINAPI getProcessList(vector<PROCESS_MEMORY_COUNTERS>& vct_pmc, vector<PROCESSENTRY32>& vct_pe32);
+string  WINAPI getProtectionInfoString(DWORD dwTarget);
+BOOL WINAPI EnablePrivileges();
+string  WINAPI memBlockInfoToString(MEMORY_BASIC_INFORMATION memBasicInfo, HANDLE handle);
+BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, char *expval, int *surplus);
+BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, int *expval);
+BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, float *expval);
+BOOL WINAPI search_in_buffer(char * buffer, LPCVOID baseAddress, search_info& v_s_rslt, double *expval);
+BOOL WINAPI search_one_mem_block(MEMORY_BASIC_INFORMATION memBasicInfo, search_info& v_s_rslt, HANDLE handle, DWORD PageSize);
+BOOL WINAPI searchAll(vector<MEMORY_BASIC_INFORMATION> memInfo, search_info &v_s_rslt, HANDLE handle, DWORD s_type, DWORD pagesize, char* charexpval, int *intexpval, float *floatexpval, double *doubleexpval);
+BOOL WINAPI attachToProcess(DWORD Pid, HANDLE & hProcess);
+BOOL WINAPI getProcessMemBlockEX(HANDLE hProcess, vector<MEMORY_BASIC_INFORMATION>& memInfo, DWORD stateFilter, DWORD typeFilter, DWORD protectFilter, DWORD* memSize);
+LPVOID WINAPI AllocVirtual(int size, HANDLE handle);
+BOOL WINAPI FreeVirtual(LPVOID Buffer, HANDLE handle);
+BOOL WINAPI nextScan(HANDLE hProcess, search_info & v_s_rslt, LPVOID expected_val);
+BOOL WINAPI writeData(HANDLE hProcess, LPVOID address, void * write_val, DWORD valType, int stringAppendZeroNUM, char endSet);
+void mySetLastError(DWORD e);
+DWORD myGetLastError();
+void init_for_mem_manage();
+void check_mem_align_scheme();
 
 /*
 只支持在单页内查找，最长4096bytes的字符串
